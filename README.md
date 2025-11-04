@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# موقع محفظة الأعمال الشخصية
 
-## Getting Started
+موقع إلكتروني شخصي متكامل لعرض الأعمال والمشاريع البرمجية، مبني باستخدام Next.js 15 و Tailwind CSS.
 
-First, run the development server:
+## المميزات
 
-```bash
+- ✨ تصميم حديث واحترافي
+- 📱 متجاوب بالكامل (Desktop, Tablet, Mobile)
+- 🌙 دعم الوضع الليلي والنهاري
+- 🇸🇦 دعم كامل للغة العربية (RTL)
+- ⚡ أداء عالي مع Next.js 15
+- 🎨 مكونات UI جاهزة من shadcn/ui
+- 📊 عرض المهارات التقنية بشكل تفاعلي
+- 💼 عرض المشاريع مع تصنيفات
+- 📧 نموذج تواصل
+
+## الأقسام
+
+1. **الصفحة الرئيسية (Hero)**: مقدمة ترحيبية مع إحصائيات
+2. **عني (About)**: نبذة عن المطور ومجالات التخصص
+3. **المهارات (Skills)**: عرض المهارات التقنية مع نسب الإتقان
+4. **الأعمال (Projects)**: عرض المشاريع مع إمكانية التصفية
+5. **التواصل (Contact)**: نموذج تواصل ومعلومات الاتصال
+6. **التذييل (Footer)**: روابط التواصل الاجتماعي
+
+## التقنيات المستخدمة
+
+- **Framework**: Next.js 15.3.2
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: shadcn/ui (Radix UI)
+- **Icons**: Emoji (بدون مكتبات خارجية)
+
+## التثبيت والتشغيل
+
+### المتطلبات
+- Node.js 18 أو أحدث
+- npm أو yarn أو pnpm
+
+### خطوات التثبيت
+
+1. تثبيت الحزم:
+\`\`\`bash
+npm install
+\`\`\`
+
+2. تشغيل المشروع في وضع التطوير:
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. فتح المتصفح على:
+\`\`\`
+http://localhost:8000
+\`\`\`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### البناء للإنتاج
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
 
-## Learn More
+## التخصيص
 
-To learn more about Next.js, take a look at the following resources:
+### تعديل البيانات الشخصية
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **المشاريع**: عدل ملف \`src/data/projects.ts\`
+2. **المهارات**: عدل ملف \`src/data/skills.ts\`
+3. **معلومات التواصل**: عدل مكون \`src/components/Contact.tsx\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### إضافة مشروع جديد
 
-## Deploy on Vercel
+افتح \`src/data/projects.ts\` وأضف مشروع جديد:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+\`\`\`typescript
+{
+  id: 7,
+  title: 'اسم المشروع',
+  description: 'وصف المشروع',
+  category: 'برامج', // أو 'أنظمة'
+  technologies: ['React', 'Node.js'],
+  githubUrl: 'https://github.com/username/repo',
+  liveUrl: 'https://example.com',
+}
+\`\`\`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### إضافة مهارة جديدة
+
+افتح \`src/data/skills.ts\` وأضف مهارة:
+
+\`\`\`typescript
+{ name: 'اسم التقنية', category: 'frontend', level: 85 }
+\`\`\`
+
+## البنية
+
+\`\`\`
+src/
+├── app/
+│   ├── layout.tsx          # التخطيط الرئيسي
+│   ├── page.tsx            # الصفحة الرئيسية
+│   └── globals.css         # الأنماط العامة
+├── components/
+│   ├── ui/                 # مكونات shadcn/ui
+│   ├── Navbar.tsx          # شريط التنقل
+│   ├── Hero.tsx            # القسم الترحيبي
+│   ├── About.tsx           # قسم عني
+│   ├── Skills.tsx          # قسم المهارات
+│   ├── Projects.tsx        # قسم المشاريع
+│   ├── ProjectCard.tsx     # بطاقة المشروع
+│   ├── Contact.tsx         # قسم التواصل
+│   └── Footer.tsx          # التذييل
+└── data/
+    ├── projects.ts         # بيانات المشاريع
+    └── skills.ts           # بيانات المهارات
+\`\`\`
+
+## النشر
+
+### Vercel (موصى به)
+
+1. ارفع المشروع إلى GitHub
+2. اربط المستودع مع Vercel
+3. سيتم النشر تلقائياً
+
+### Netlify
+
+\`\`\`bash
+npm run build
+\`\`\`
+
+ثم ارفع مجلد \`.next\` إلى Netlify
+
+## الترخيص
+
+هذا المشروع مفتوح المصدر ومتاح للاستخدام الشخصي والتجاري.
+
+## الدعم
+
+إذا واجهت أي مشاكل أو لديك اقتراحات، يمكنك:
+- فتح Issue على GitHub
+- التواصل عبر البريد الإلكتروني
+
+---
+
+صُنع بـ ❤️ باستخدام Next.js و Tailwind CSS
